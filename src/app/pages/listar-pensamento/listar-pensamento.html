@@ -1,0 +1,31 @@
+<section class="container">
+    <header class="header d-flex">
+        <h2 class="ff-inter">Meu Mural</h2>
+        <button routerLink="/criarPensamento" class="botao">Adicionar pensamento</button>
+    </header>
+
+    <!-- <div class="mural">
+        @if (listaPensamentos.length > 0) {
+        @for (item of listaPensamentos; track $index) {
+        <app-pensamento [pensamento]="item"></app-pensamento>
+        }
+        } @else {
+        <p>Pensamentos não cadastrados!</p>
+        }
+
+        </div>
+        -->
+
+
+    <div class="mural">
+        @if (listaPensamentos$ | async; as lista) {
+        @for (item of lista; track item.id) {
+        <app-pensamento [pensamento]="item"></app-pensamento>
+        }
+        } @else {
+        <p>Pensamentos não cadastrados!</p>
+        }
+    </div>
+
+
+</section>
