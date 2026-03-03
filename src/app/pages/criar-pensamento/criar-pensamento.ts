@@ -36,9 +36,9 @@ export class CriarPensamento {
     get autoria () {
         return this.formulario.get( 'autoria' );
     }
-    get modelo () {
-        return this.formulario.get( 'modelo' );
-    }
+    // get modelo () {
+    //     return this.formulario.get( 'modelo' );
+    // }
 
     //formulario?: FormGroup;
     //formulario!: FormGroup;
