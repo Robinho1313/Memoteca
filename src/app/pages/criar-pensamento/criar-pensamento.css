@@ -39,6 +39,7 @@
     padding: 1rem 2rem;
     border-radius: 20px;
     margin: 0.5rem 0 2rem;
+    margin-bottom: 4px;
 }
 
 
@@ -93,9 +94,9 @@
     box-shadow: 8px 8px 0px #84EEC1;
 }
 
-input[type='radio'] {
+/* input[type='radio'] {
     display: none;
-}
+} */
 
 .radio-modelo label {
     display: flex;
@@ -132,4 +133,32 @@ input[type='radio']:checked+.custom-radio {
 
 input[type='radio']:checked+.custom-radio span {
     background: #154580;
+}
+
+.botao:disabled {
+    background-color: #ccc;
+    /* cinza quando desabilitado */
+    cursor: not-allowed;
+    /* cursor de bloqueio */
+    opacity: 0.6;
+    /* efeito visual */
+}
+
+.error-message {
+    color: #e74c3c;
+    /* vermelho forte */
+    font-size: 0.875rem;
+    /* um pouco menor que o texto normal */
+    margin-top: 4px;
+    /* espaçamento pequeno acima da mensagem */
+    margin-bottom: 8px;
+    /* um espaço abaixo para não ficar colado no próximo elemento */
+    font-weight: 600;
+    /* um pouco em negrito para destacar */
+}
+
+input[type="radio"] {
+    display: inline-block !important;
+    opacity: 1 !important;
+    position: static !important;
 }

@@ -1,4 +1,4 @@
-<section class="container criar-pensamentos ff-inter">
+<!-- <section class="container criar-pensamentos ff-inter">
     <header class="header">
         <h2>Adicione um <br> pensamento novo:</h2>
     </header>
@@ -75,6 +75,99 @@
         <div class="acoes">
             <button (click)="criarPensamento()" class="botao">Salvar</button>
             <button routerLink="/listarPensamento" class="botao">Cancelar</button>
+        </div>
+    </form>
+</section> -->
+
+
+
+<section class="container criar-pensamentos ff-inter">
+    <header class="header">
+        <h2>Adicione um <br> pensamento novo:</h2>
+    </header>
+
+    <form [formGroup]="formulario" (ngSubmit)="criarPensamento()">
+
+        <label for="pensamento">Pensamento</label>
+        <input type="text" class="input" id="pensamento" placeholder="Digite o pensamento" formControlName="conteudo">
+
+        @if (conteudo?.touched && conteudo?.invalid) {
+
+        @if (conteudo?.errors?.['required']) {
+        <small class="error-message">O pensamento é obrigatório.</small>
+        }
+
+        @if (conteudo?.errors?.['minlength']) {
+        <small class="error-message">O pensamento precisa ter no mínimo 3 caracteres.</small>
+        }
+
+        }
+
+
+        <label for="autoria">Autoria ou fonte</label>
+        <input type="text" class="input" id="autoria" placeholder="Digite a autoria ou fonte" formControlName="autoria">
+
+        @if (autoria?.touched && autoria?.invalid) {
+        @if (autoria?.errors?.['required']) {
+        <small>A autoria é obrigatória.</small>
+        }
+        }
+
+        <label>Selecione o modelo do card:</label>
+
+        <div class="container-radio">
+
+            <!-- MODELO 1 -->
+            <div class="radio-modelo">
+                <label>
+                    <input type="radio" value="modelo1" formControlName="modelo">
+                    <span>Modelo 1</span>
+                </label>
+
+                Prévia:
+                <div class="modelo modelo1 ff-roboto-mono">
+                    <img src="/imagens/modelo1.png" alt="Aspas azuis">
+                    <p class="conteudo">{{ formulario.value.conteudo }}</p>
+                    <p class="autoria"><b>{{ formulario.value.autoria }}</b></p>
+                </div>
+            </div>
+
+            <!-- MODELO 2 -->
+            <div class="radio-modelo">
+                <label>
+                    <input type="radio" value="modelo2" formControlName="modelo">
+                    <span>Modelo 2</span>
+                </label>
+
+                Prévia:
+                <div class="modelo modelo2 ff-roboto-mono">
+                    <img src="/imagens/modelo2.png" alt="Aspas azul claro">
+                    <p class="conteudo">{{ formulario.value.conteudo }}</p>
+                    <p class="autoria"><b>{{ formulario.value.autoria }}</b></p>
+                </div>
+            </div>
+
+            <!-- MODELO 3 -->
+            <div class="radio-modelo">
+                <label>
+                    <input type="radio" value="modelo3" formControlName="modelo">
+                    <span>Modelo 3</span>
+                </label>
+
+                Prévia:
+                <div class="modelo modelo3 ff-roboto-mono">
+                    <img src="/imagens/modelo3.png" alt="Aspas verdes">
+                    <p class="conteudo">{{ formulario.value.conteudo }}</p>
+                    <p class="autoria"><b>{{ formulario.value.autoria }}</b></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="acoes">
+            <button type="submit" class="botao" [disabled]="formulario.invalid">Salvar</button>
+            <button type="button" routerLink="/listarPensamento" class="botao">
+                Cancelar
+            </button>
         </div>
     </form>
 </section>
