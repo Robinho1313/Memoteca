@@ -27,9 +27,17 @@ import { CommonModule } from '@angular/common';
 
 //Opçao 3 (Recomendada)
 export class ListarPensamento {
+
     private service = inject( Services );
 
     listaPensamentos$: Observable<PensamentoModel[]> = this.service.listar();
+
+    ngOnInit () {
+
+        this.listaPensamentos$.subscribe( lista => {
+            console.log( "Valores do observable de pensamento:::::::: ", lista );
+        } )
+    }
 }
 
 //Opçao 1:
@@ -55,4 +63,5 @@ export class ListarPensamento {
 //         this.listaPensamentos$ = this.service.listar();
 //     }
 // }
+
 
